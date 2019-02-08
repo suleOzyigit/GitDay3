@@ -20,11 +20,11 @@ public class LoginTests {
     WebDriver driver;
 
 
-        @BeforeClass
-        public void setUp() {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    @BeforeClass
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
@@ -36,12 +36,12 @@ public class LoginTests {
     }
 
     @AfterMethod
-    public  void cleanUp(){
+    public void cleanUp() {
         driver.close();
     }
 
     @Test
-    public void logOut(){
+    public void logOut() {
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test" + Keys.ENTER);
@@ -50,13 +50,14 @@ public class LoginTests {
 
     }
 
-@Test
-public void negativeloginTest() {
-    driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
-    driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester2");
-    driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test2" + Keys.ENTER);
-    String errorMsg = driver.findElement(By.id("ctl00_MainContent_status")).getText();
+    @Test
+    public void negativeloginTest() {
+        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester2");
+        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test2" + Keys.ENTER);
+        String errorMsg = driver.findElement(By.id("ctl00_MainContent_status")).getText();
 
-    Assert.assertEquals(errorMsg, "Invalid Login or Password.");
+        Assert.assertEquals(errorMsg, "Invalid Login or Password.");
 
+    }
 }

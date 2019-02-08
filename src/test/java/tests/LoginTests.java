@@ -14,7 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
-
+//Login testsmaintained here
+//with out Pom approach
 public class LoginTests {
 
     WebDriver driver;

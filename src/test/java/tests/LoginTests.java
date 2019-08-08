@@ -61,4 +61,5 @@ public class LoginTests {
         Assert.assertEquals(errorMsg, "Invalid Login or Password.");
 
     }
+
 }
